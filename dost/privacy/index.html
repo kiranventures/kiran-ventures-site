@@ -18,7 +18,7 @@
 
   <main>
     <h1>Privacy Policy</h1>
-    <p class="meta">Kiran Ventures LLC &middot; Last updated: July 2026</p>
+    <p class="meta">Kiran Ventures LLC &middot; Last updated: November 2026</p>
 
     <h2>Overview</h2>
     <p>Dost (&ldquo;the App&rdquo;) is operated by Kiran Ventures LLC (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;). This Privacy Policy explains how we collect, use, and protect your information when you use Dost.</p>
@@ -28,9 +28,10 @@
 
     <h3>Information you provide</h3>
     <ul>
-      <li><strong>Username and password</strong> &mdash; used to create and access your account</li>
+      <li><strong>Username</strong> &mdash; used to create and access your account</li>
+      <li><strong>Password</strong> &mdash; if you sign up with a username and password rather than Sign in with Apple</li>
       <li><strong>Phone number</strong> &mdash; used to verify your identity and connect you with friends who are already on Dost</li>
-      <li><strong>Profile description</strong> &mdash; optional, visible to contacts who have added you</li>
+      <li><strong>Profile description, birthdays and anniversaries (&ldquo;special days&rdquo;)</strong> &mdash; optional, visible to contacts who have added you</li>
     </ul>
 
     <h3>Information from your device</h3>
@@ -42,12 +43,16 @@
     <h3>Information we collect automatically</h3>
     <ul>
       <li><strong>Device information</strong> &mdash; device type, operating system version</li>
-      <li><strong>Usage data</strong> &mdash; app sessions, feature usage, crash reports</li>
+      <li><strong>Usage data and analytics</strong> &mdash; app sessions, feature usage, and other diagnostic events, collected automatically through Firebase Analytics</li>
+      <li><strong>Crash and diagnostic data</strong> &mdash; collected automatically through Firebase Crashlytics to help us identify and fix bugs</li>
       <li><strong>Push notification tokens</strong> &mdash; used to send you reminders and notifications</li>
     </ul>
 
     <h3>Apple Sign In</h3>
-    <p>If you choose to sign in with Apple, we receive a unique Apple user identifier and, on first sign in, your name and email address (or Apple relay address). We use this only to create and manage your account.</p>
+    <p>If you choose to sign in with Apple, we receive a unique Apple user identifier and, on first sign in, your name and email address (or Apple relay address). We use this only to create and manage your account. If you later delete your account, we revoke this token with Apple as part of the deletion process.</p>
+
+    <h3>Backup codes</h3>
+    <p>If you create an account with a username and password, we generate backup recovery codes for you. Only a one-way cryptographic hash of these codes is stored on our servers &mdash; the original codes are shown to you once and are never retained in a form we can read.</p>
 
     <h2>How We Use Your Information</h2>
     <p>We use your information to:</p>
@@ -65,26 +70,38 @@
       <li>Use your contacts for any purpose other than friend matching and contact selection</li>
     </ul>
 
-    <h2>Data Storage and Security</h2>
-    <p>Your data is stored securely using Google Firebase, which provides industry-standard encryption in transit and at rest. Contact data and personal information stored in Firestore is encrypted at the application level before being written to our database.</p>
-
-    <h2>Third Party Services</h2>
-    <p>Dost uses the following third party services:</p>
+    <h2>What Other Users Can See About You</h2>
+    <p>Dost is built around specific, controlled sharing between people who have added each other &mdash; not broadcast social media. Here&rsquo;s exactly what that means:</p>
     <ul>
-      <li><strong>Google Firebase</strong> &mdash; authentication, database, push notifications (<a href="https://firebase.google.com/support/privacy">Google Privacy Policy</a>)</li>
-      <li><strong>Apple Sign In</strong> &mdash; optional authentication (<a href="https://www.apple.com/privacy/">Apple Privacy Policy</a>)</li>
+      <li><strong>Your card</strong> &mdash; your profile description, photo, and any birthdays or special days you&rsquo;ve added are visible to anyone who has added you as a contact.</li>
+      <li><strong>Swipe and nudge activity</strong> &mdash; if someone swipes right on you or sends a nudge, that signal is shown to you, including before you&rsquo;ve added them back.</li>
+      <li><strong>Shared activity history</strong> &mdash; Dost keeps a shared log of swipe and add/remove actions between you and a specific contact. This log is only ever visible to the two people involved.</li>
+      <li><strong>What stays private</strong> &mdash; your phone number, username, and full account details are never shown to other users. The only information visible to a contact is what appears on your card, which is a smaller, user-controlled subset of your account.</li>
     </ul>
 
-    <h2>Data Retention</h2>
-    <p>We retain your data for as long as your account is active. If you delete your account, your personal data and contact associations are permanently deleted from our systems. Activity history shared with other users (such as connection logs) may be retained as part of those users&rsquo; accounts for the duration of their respective accounts.</p>
-    <p>You can delete your account at any time from <strong>Settings &rarr; Delete Account</strong> within the app.</p>
+    <h2>How We Secure Your Data</h2>
+    <p>Your data is stored using Google Firebase, which provides industry-standard encryption in transit and at rest.</p>
+    <p>Contact names and phone numbers that you add to your queue are also encrypted at the application level with AES encryption before being written to our database. This protects your data from casual inspection of the underlying database. To be precise about what this does and doesn&rsquo;t mean: this is not end-to-end encryption, and it does not mean no one at Kiran Ventures can ever access this data &mdash; our systems are capable of decrypting it as part of operating the app (for example, to help you if you contact support). We do not access this data for any purpose other than operating and improving Dost.</p>
+
+    <h2>Third Party Services</h2>
+    <p>Dost uses the following third party services, which act as our data processors:</p>
+    <ul>
+      <li><strong>Google Firebase</strong> (Authentication, Firestore database, Cloud Storage, Cloud Messaging, Analytics, Crashlytics) &mdash; <a href="https://firebase.google.com/support/privacy">Google Privacy Policy</a></li>
+      <li><strong>Apple Sign In</strong> &mdash; optional authentication &mdash; <a href="https://www.apple.com/privacy/">Apple Privacy Policy</a></li>
+    </ul>
+    <p>We do not use any third-party advertising SDKs, and we do not collect or share any advertising identifiers.</p>
+
+    <h2>Data Retention and Deletion</h2>
+    <p>We retain your data for as long as your account is active.</p>
+    <p>If you delete your account from <strong>Settings &rarr; Delete Account</strong>, we delete your account record, your card, your lookup records, your pending reminders, and your authentication credentials, including revoking your Apple Sign In token if applicable.</p>
+    <p>Please note: because Dost&rsquo;s core feature is showing you shared activity with the people you&rsquo;ve connected with, some information does not disappear the moment you delete your account. Specifically, an encrypted copy of your name and phone number may remain in other users&rsquo; own contact lists if they had added you, and shared activity history between you and a specific contact may remain visible to that contact. This reflects the same way a phone number or text thread would remain in someone else&rsquo;s phone after you stop using a messaging app &mdash; it is data they hold about their own contacts, not data we continue to actively process on your behalf.</p>
 
     <h2>Your Rights</h2>
     <p>You have the right to:</p>
     <ul>
       <li>Access the data we hold about you</li>
       <li>Request correction of inaccurate data</li>
-      <li>Request deletion of your account and associated data</li>
+      <li>Request deletion of your account and associated data, as described above</li>
       <li>Withdraw consent at any time by deleting your account</li>
     </ul>
     <p>To exercise any of these rights, contact us at <a href="mailto:kiranventuresllc@gmail.com">kiranventuresllc@gmail.com</a>.</p>
